@@ -11,6 +11,7 @@ RUN apt-get update &&\
     apt-get -y install --no-install-recommends --yes python3-setuptools &&\
     apt-get -y install --no-install-recommends --yes gunicorn &&\
     apt-get -y install --no-install-recommends --yes libmagic-dev &&\
+    apt-get -y install --no-install-recommends --yes poppler-utils &&\
     pip3 install --upgrade pip &&\
     pip3 install -r requirements.txt &&\
     apt-get clean &&\
