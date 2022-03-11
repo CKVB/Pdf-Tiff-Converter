@@ -1,4 +1,4 @@
-from fastapi import APIRouter, File, UploadFile, status, Request
+from fastapi import APIRouter, File, UploadFile, status, Request, BackgroundTasks
 from .. import config as cg
 from ..services import get_service
 
@@ -11,8 +11,9 @@ async def create_upload_file(file: UploadFile = File(...)):
 
 
 @app_router.get("/convert", responses=cg.pdf_tiff_to_images_response)
-def convert_pdf_tiff_to_images():
-    return get_service("PDF_TIFF_TO_IMAGES")
+def convert_pdf_tiff_to_images(background_tasks: BackgroundTasks):
+    background_tasks.add_task(get_service, "PDF_TIFF_TO_IMAGES")
+    return {"message": "task running in background, proceed to get images."}
 
 
 @app_router.get("/images", responses=cg.get_images_response)
