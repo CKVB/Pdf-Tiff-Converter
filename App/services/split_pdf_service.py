@@ -14,7 +14,7 @@ def split_pdf_service(file):
         os.path.join(cs.IMG_DIR, file_name)
     ]
     try:
-        subprocess.check_output(command, timeout=1000)
+        subprocess.check_output(command)
     except Exception as e:
         return JSONResponse(
                 content={
