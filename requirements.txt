@@ -3,7 +3,7 @@ asgiref==3.4.1
 click==8.0.4
 contextlib2==21.6.0
 contextvars==2.4
-dataclasses==0.8
+dataclasses
 fastapi==0.75.0
 gunicorn==20.1.0
 h11==0.13.0
